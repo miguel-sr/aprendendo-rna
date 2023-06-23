@@ -1,4 +1,4 @@
-import generateRandomNumbers from "./utils/generateRandomNumbers";
+import generateRandomInputs from "./utils/generateRandomInputs";
 import myNetwork from "./neuralNetwork";
 
 enum Emotions {
@@ -24,10 +24,10 @@ for (let i = 0; i < 20000; i++) {
   myNetwork.propagate(learningRate, [Emotions.Happy]);
 }
 
-const randomNumbers = generateRandomNumbers();
+const randomInput = generateRandomInputs();
 
-randomNumbers.forEach((param) => {
-  const output = myNetwork.activate(param)[0];
+randomInput.forEach((input) => {
+  const output = myNetwork.activate(input)[0];
 
   switch (parseFloat(output.toFixed(1))) {
     case 0.0:
